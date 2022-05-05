@@ -1,0 +1,46 @@
+POST http://localhost:3000/api/1.0/appointments
+content-type: application/json
+
+{
+    "name": "Trixie",
+    "age": 18,
+    "gender": "f",
+    "email": "trixie4@hell.com",
+    "date": "2022/04/24",
+    "hour": "11:00"
+}
+
+
+
+
+
+###
+GET http://localhost:3000/api/1.0/appointments
+
+
+###
+GET http://localhost:3000/api/1.0/appointments/01c6c7a8-b
+
+
+
+###
+PUT  http://localhost:3000/api/1.0/appointments/b16a1b00-3
+content-type: application/json
+
+{
+    "name": "Chloe",
+    "age": 35,
+    "gender": "f",
+    "email": "chloe1@hell.com",
+    "date": "2022/04/22",
+    "hour": "13:00"
+}
+
+
+
+
+
+###
+DELETE  http://localhost:3000/api/1.0/appointments/01c6c7a8-b
+
+
