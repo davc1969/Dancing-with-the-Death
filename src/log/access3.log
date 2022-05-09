@@ -778,3 +778,7 @@
 ::1 - - [09/May/2022:19:39:49 +0000] "GET /api/1.0/appointments/search?date=2022-05-09 HTTP/1.1" 500 67
 ::1 - - [09/May/2022:20:46:48 +0000] "GET /api/1.0/appointments/search?date=2022-05-09 HTTP/1.1" 500 67
 ::1 - - [09/May/2022:20:47:00 +0000] "POST /api/1.0/appointments HTTP/1.1" 500 67
+::1 - - [09/May/2022:20:51:38 +0000] "GET /api/1.0/appointments/search?date=2022-05-09 HTTP/1.1" 404 70
+::1 - - [09/May/2022:20:51:45 +0000] "POST /api/1.0/appointments HTTP/1.1" 201 300
+::1 - - [09/May/2022:20:51:45 +0000] "GET /api/1.0/appointments/search?date=2022-05-09 HTTP/1.1" 200 298
+::1 - - [09/May/2022:20:59:48 +0000] "GET /api/1.0/appointments/search?date=2022-05-09 HTTP/1.1" 304 -

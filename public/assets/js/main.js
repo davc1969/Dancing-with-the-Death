@@ -110,7 +110,7 @@ const createTable = () => {
 }
 
 const getAppointments = async (dateAppointments) => {
-    const url = `http://localhost:3000/api/1.0/appointments/search?date=${dateAppointments}`;
+    const url = `/api/1.0/appointments/search?date=${dateAppointments}`;
     const res = await fetch(url);
     const data = await res.json();
 
