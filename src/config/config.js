@@ -20,14 +20,14 @@ const config = {
         emailPassword : process.env.SMTP_PASSWORD,
 
         pg_config: {
-                user: process.env.DB_USER,
-                host: process.env.DB_HOST,
-                password: process.env.DB_PASSWORD,
-                database: (process.env.NODE_ENV == "test") ? process.env.DB_DATABASE_TEST : process.env.DB_DATABASE,
-                port: process.env.DB_PORT,
-                max: process.env.DB_MAX,
-                idleTimeoutMillis: process.env.DB_IDLETIMEOUTMILLIS,
-                connectionTimeoutMillis: process.env.DB_CONNECTIONTIMEOUTMILLIS,
+                user: process.env.PG_USER,
+                host: process.env.PG_HOST,
+                password: process.env.PG_PASSWORD,
+                database: (process.env.NODE_ENV == "test") ? process.env.PG_DATABASE_TEST : process.env.PG_DATABASE,
+                port: process.env.PG_PORT,
+                max: process.env.PG_MAX,
+                idleTimeoutMillis: process.env.PG_IDLETIMEOUTMILLIS,
+                connectionTimeoutMillis: process.env.PG_CONNECTIONTIMEOUTMILLIS,
         }
 
 

@@ -2,18 +2,6 @@ const { Pool, Client } = require("pg");
 const { pg_config } = require("../config/config")
 
 
-//
-const {
-    DB_USER,
-    DB_HOST,
-    DB_PASSWORD,
-    DB_DATABASE,
-    DB_PORT,
-    DB_MAX,
-    DB_IDLETIMEOUTMILLIS,
-    DB_CONNECTIONTIMEOUTMILLIS
-} = process.env;
-
 
 const config = pg_config;
 
