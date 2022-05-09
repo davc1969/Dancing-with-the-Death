@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (validData()) {
             e.preventDefault()
-            const url = "http://localhost:3000/api/1.0/appointments"
+            const url = "/api/1.0/appointments"
             try {
                 const response = await fetch(url, fetchOptions)
                 const data = await response.json();
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         if (confirm("Are you sure that you want to delete this appointment?")) {
             const id = appointmentsArray[selectedAppointment].id
-            const url = `http://localhost:3000/api/1.0/appointments/${id}`;
+            const url = `/api/1.0/appointments/${id}`;
             const response = await fetch(url, { method: "DELETE" })
             const data = await response.json()
             if (data.ok) {
