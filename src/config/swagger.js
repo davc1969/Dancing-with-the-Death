@@ -1,3 +1,4 @@
+const { json } = require("mocha/lib/reporters");
 const { PORT } = require("../config/config");
 
 
@@ -52,6 +53,31 @@ const swaggerOptions = {
                     "date",
                     "hour"
                 ]
+            },
+            ApiResponse : {
+                type: "object",
+                properties: {
+                    ok:     { type: "Boolean", definition: "true if succesfull api response" },
+                    code:   { type: "Number", definition: "Api response code"},
+                    message:{ type: "String", definition: "Api response message"},
+                    data:   { type: "Array", definition: "Array with the data delivered for the API, see Appointments Schema"}
+                },
+                example: {
+                    ok: "true",
+                    code: "1001",
+                    message: "appointment created succesfully",
+                    data: [
+                        {
+                            id: "01c6c7a8-b",
+                            name: "Dorian Gray",
+                            age: "100",
+                            gender: "M",
+                            email: "dorian.gray@thehell.com",
+                            date: "2021/12/31",
+                            hour: "00:00"
+                        }
+                    ]
+                }
             }
         }
     },
@@ -78,7 +104,7 @@ const swaggerOptions = {
                         content: {
                             "application/json" : {
                                 schema: {
-                                    $ref: "#components/schemas/Appointments"
+                                    $ref: "#components/schemas/ApiResponse"
                                 }
                             }
                         }
@@ -97,7 +123,7 @@ const swaggerOptions = {
                         content: {
                             "application/json" : {
                                 schema: {
-                                    $ref: "#components/schemas/Appointments"
+                                    $ref: "#components/schemas/ApiResponse"
                                 }
                             }
                         }
@@ -125,7 +151,7 @@ const swaggerOptions = {
                         content: {
                             "application/json" : {
                                 schema: {
-                                    $ref: "#components/schemas/Appointments"
+                                    $ref: "#components/schemas/ApiResponse"
                                 }
                             }
                         }
@@ -148,6 +174,13 @@ const swaggerOptions = {
                 responses: {
                     202: {
                         description: "appointment succesfully deleted",
+                        content: {
+                            "application/json" : {
+                                schema: {
+                                    $ref: "#components/schemas/ApiResponse"
+                                }
+                            }
+                        }
                     },
                     404: {
                         description: "resource not found"
@@ -178,6 +211,13 @@ const swaggerOptions = {
                 responses: {
                     202: {
                         description: "appointment succesfully updated",
+                        content: {
+                            "application/json" : {
+                                schema: {
+                                    $ref: "#components/schemas/ApiResponse"
+                                }
+                            }
+                        }
                     },
                     404: {
                         description: "resource not found"

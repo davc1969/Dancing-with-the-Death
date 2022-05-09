@@ -1,6 +1,7 @@
 const { StatusCodes: httpCodes, getReasonPhrase } = require("http-status-codes");
 const cOut = require("./cOut");
 
+
 const httpError = (err, res) => {
     cOut.error("error en server: ", err, getReasonPhrase(err));
 

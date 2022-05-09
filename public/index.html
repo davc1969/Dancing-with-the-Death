@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Homemade+Apple&family=Poppins:ital,wght@0,300;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Dancing with the Death</title>
+</head>
+<body>
+    <header>
+        <h1>Wanna dance with the Death?</h1>
+        <p>Take a unique chance in lifetime.  Come for a full hour dancing with the Death, is an experience you will never forget!</p>
+    </header>
+    <div class="container">
+        <div class="picture">
+            <img src="./assets/img/death_dancing02.jpeg" alt="">
+            <p>"Dance with me, Death, I am ready."</p>
+            <p>Terry Goodkind</p>
+        </div>
+        <div class="dateAppointments">
+            <h2>Set your appointment here</h2>
+            <h4>Please select a date (Monday thru Friday only)</h4>
+            <input type="date" name="dateSelect" id="dateSelect" onchange="getAppointments()">
+ 
+            <table class="appointmentsList" >
+                <thead>
+                    <tr>
+                        <th class="labelHour">Hour</th>
+                        <th class="labelPerson">Lucky person</th>
+                    </tr>
+                </thead>
+                <tbody id="appointmentsList">
+                </tbody>
+                
+            </table>
+            <p>Click on blank row to set appointment / Click on name to see appointment</p>
+        </div>
+        <div class="infoUser">
+            <h3>Dancer info</h3>
+            <p id="selectedTime">No time selected</p>
+            <form id="userInfoForm" action="submit">
+                <label for="userName">Your name:</label>
+                <input type="text" id="userName" name="userName" required disabled>
+                <label for="userEmail">Your email:</label>
+                <input type="email" id="userEmail" name="userEmail" required disabled>
+                <label for="userAge">Your age (minors not allowed):</label>
+                <input type="number" id="userAge" name="userAge" min="18" max="100" required disabled>
+                <label for="userGender">Your gender:</label>
+                <select name="userGender" id="userGender" required disabled>
+                    <option value="F">Female</option>
+                    <option value="M">Male</option>
+                    <option value="O">Other</option>
+                </select>
+
+                <div class="buttons">
+                    <input class="button" type="submit" id="button1" value="" hidden>
+                    <input class="button" type="button" id="button2" value="" hidden>
+                    <input class="button" type="button" id="button3" value="" hidden>
+                    <!-- <button id="button1" hidden ></button>
+                    <button id="button2" hidden></button>
+                    <button id="button3" hidden></button> -->
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

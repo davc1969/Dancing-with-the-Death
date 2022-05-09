@@ -6,9 +6,16 @@ appointmentsRoutes.get("/", (req, res) => {
     appointmentsController.getAppointments(req, res)
 });
 
+appointmentsRoutes.get ("/search", (req, res) => {
+    console.log("Entamos a la ruta")
+    appointmentsController.getAppointmentByDate(req, res)
+});
+
 appointmentsRoutes.get ("/:id", (req, res) => {
+    console.log("entramos en id?")
     appointmentsController.getAppointment(req, res)
 });
+
 
 appointmentsRoutes.post("/", (req, res) => {
     console.log("Estamos en la ruta de crear")
