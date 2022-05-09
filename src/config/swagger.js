@@ -1,5 +1,5 @@
 const { json } = require("mocha/lib/reporters");
-const { PORT } = require("../config/config");
+const { PORT, HOST, API_Path } = require("../config/config");
 
 
 const swaggerOptions = {
@@ -17,7 +17,7 @@ const swaggerOptions = {
     produces: [ "application/json" ],
     servers: [
         {
-            url: `http://localhost:${PORT}/api/1.0`,
+            url: `${HOST}:${PORT}${API_Path}`,
             description: "development server for appointments info"
         }
     ],

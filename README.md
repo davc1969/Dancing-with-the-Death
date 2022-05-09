@@ -1,68 +1,27 @@
-# Basic Template for apps with Express Server with Mongo DB CRUD
+# Dancing with the Death
+### version 1.0
 
-## version 1.0
+An app to set appointments to dance with the Death in its proper time.  You can select any date and any hour, but beware!, you can make only one selection in your lifetime.  Please don't try to cheat on the Death, she will know and you will face the consequences.
 
-This templates is only for the creation of the CRUD of a simple schema (payments) for a Mongo database.  
-Connection to dataabse is by *mongoose* package.
+
+This app handles a full CRUD process for the mentioned appointments.  It is based ina Postgres database.  The backend was written using Node/Express for the server, and the frontend was made entirely in HTML, CSS and JS.
 
 the route for the API is
-**/api/1.0/payments**, and the options are:
+**/api/1.0/appointments**, 
 
-* /api/1.0/payments: ***POST*** to create a payment, the body must contains the following info as json:
-{
-    "description": "Pago",
-    "billed_hours": 2.5,
-    "billed_at": "2020-04-01",
-    "billing_currency": "clf",
-    "billed_amount": 1.6,
-    "needs_exchange": false,
-    "exchange_currency": "clp"
-}
-
-* /api/1.0/payments: ***GET*** to show all the payments 
-
-* /api/1.0/payments/_id: ***GET*** to show an specific payment by its id
-
-* /api/1.0/payments/_id: ***PUT*** to update a payment, the body must contains the following info as json:
-{
-    "description": "Pago redoble",
-    "billed_hours": 2.6,
-    "billed_at": "2020-04-01",
-    "billing_currency": "clf",
-    "billed_amount": 1.6,
-    "needs_exchange": true,
-    "exchange_currency": "clp"
-}
-
-* /api/1.0/payments/_id: ***DELETE*** to delete an specific payment by its id
-
-the file *api.rest* shows the example for the use of the CRUD.  This file works in VSC with the extension *REST Client*.
+and the documentation, generated through ***Swagger*** can be found on:
+**/api/1.0/docs**
 
 
-## Changelog
+## Future Work
 
-### version 1.3
-Authentication, using ***JWT*** and ***BCrypt***, was implemented.  A new API was created to register and login users.  Every user has a role that is assigned during the register.  This role can be ADMIN or USER.
-Authentication by roles was implemented for create new items in payments database (just an exercise), so only ADMINS can create new payments.  ADMIN and USER can see, delete and update payments.
+There is a couple of things that can be added to this app, but, because of timing, they will be delivered later, if requested.  Among other, I think that the following can be interesting, and easy to implement:
+* - No appointment can be set, deleted or updated in a date previous to the current date
+* - An email can be sent, using ***Nodemailer*** package everytime a new appointment is set, or when an appointment is updated
+* - Authentication, usin ***JWT*** can be implemented and roles can be assigned, so anyone can set an appointment, but only app administrators can delete one
+* - Responsiveness in the frontend *must* be implemented
+* - **Unit tests need to be implemented!!!**
 
-Everytime a new user is registered, all ADMINs receive a mail with the notification.  This email is sent using ***Nodemailer*** package.
-
-A new library was created, called ***cOut*** that  gives format to the output to the server console (*console.log*).  It uses ***Chalk*** package to add colors to every output.
-
-***Mocha & Chai*** were used to create a basic **Unit test** on the *Payments API*.  The tests will run on a specific database created for this (*payment_test*)
-
-### version 1.2
-
-***JOI*** package was included for validation of data sent to API when create or update a payment
-
-***Morgan*** package was also included as logger to the calls for the API service
-
-
-### version 1.1
-
-***Swagger*** package was used to create the documentation of the API.  It can be found on:
-**http://localhost:3000/api/1.0/docs**
-
-
+Please fell fre to contact me for any additional information: **dario.valenzuela@gmail.com**
 
 

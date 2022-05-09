@@ -1,11 +1,12 @@
 {
-  "name": "templateexpressmongodb",
+  "name": "dancingwiththedeath",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ",
-    "start:dev": "nodemon ./src/index"
+    "test": "",
+    "start:dev": "nodemon ./src/index",
+    "start": "node ./src/index"
   },
   "author": "Dario Valenzuela",
   "license": "ISC",

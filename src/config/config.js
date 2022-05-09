@@ -4,6 +4,8 @@ const config = {
 
         PORT : process.env.PORT || 3000,
 
+        HOST : "http://localhost",
+
         API_Path : "/api/1.0",
 
         authKey: process.env.AUTH_KEY || "simpleKey",
