@@ -25,9 +25,9 @@ const config = {
                 password: process.env.PG_PASSWORD,
                 database: (process.env.NODE_ENV == "test") ? process.env.PG_DATABASE_TEST : process.env.PG_DATABASE,
                 port: process.env.PG_PORT,
-                max: process.env.PG_MAX,
-                idleTimeoutMillis: process.env.PG_IDLETIMEOUTMILLIS,
-                connectionTimeoutMillis: process.env.PG_CONNECTIONTIMEOUTMILLIS,
+                ssl: {
+                        rejectUnauthorized: false
+                }
         }
 
 
