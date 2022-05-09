@@ -23,6 +23,7 @@ appointmentsRoutes.post("/", (req, res) => {
 });
 
 appointmentsRoutes.put("/:id", (req, res) => {
+    console.log("we are in put")
     appointmentsController.updateAppointment(req, res)
 });
 

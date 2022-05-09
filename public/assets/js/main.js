@@ -94,7 +94,6 @@ const showDetails = (i) => {
 }
 
 const createTable = () => {
-    const appointmentsTable = document.getElementById("appointmentsList");
     for (let i = 0; i <= 8; i++) {
         const newRow = document.createElement("tr");
         const newColHour = document.createElement("td");
@@ -114,12 +113,13 @@ const getAppointments = async (dateAppointments) => {
     const res = await fetch(url);
     const data = await res.json();
 
+    const rows = appointmentsTable.children
+    Array.from(rows).forEach( (elem) => {
+        elem.children[1].innerText = "-"
+    })
+
     if (data.ok) {
         appointmentsArray = data.data
-        const rows = appointmentsTable.children
-        Array.from(rows).forEach( (elem) => {
-            elem.children[1].innerText = "-"
-        })
 
         appointmentsArray.forEach( (ap, i) => {
             const selHour = ap.hour.split(":")[0] * 1;
@@ -145,7 +145,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let fetchOptions = {}
         let fetchMessages = {}
+        let url = ""
         if (btn1.value == "Set") {
+            url = "/api/1.0/appointments"
             fetchOptions = {
                     method: "POST",
                     headers: {
@@ -166,6 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 fetchError : "Error creating new appointment: "
             }
         } else {
+            url = "/api/1.0/appointments/" + appointmentsArray[selectedAppointment].id
             fetchOptions = {
                 method: "PUT",
                 headers: {
@@ -187,10 +190,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (validData()) {
             e.preventDefault()
-            const url = "/api/1.0/appointments"
             try {
+                console.log("  -- 1 ", fetchOptions)
                 const response = await fetch(url, fetchOptions)
+                console.log("  -- 2 ")
+                console.log("r ", response)
                 const data = await response.json();
+                console.log("  -- 3 ")
+                console.log("-------------   ", data)
                 if (data.ok) {
                     getAppointments(selectedDate)
                     activateForm(0, 0)
@@ -200,6 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     alert("Error " + data.code + " : " + data.message)
                 }
             } catch (error) {
+                console.log("  -- 4 ")
                 console.log(fetchMessages.fetchError + error)
             }
 
